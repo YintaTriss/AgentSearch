@@ -1,24 +1,26 @@
-# Search Skill
+# AgentSearch
 
-多引擎搜索技能，支持 Tavily、Brave Search 等。
+多引擎搜索技能，为 Agent 提供智能信息检索能力。
 
 ## 特性
 
 - **多引擎支持**：Tavily、Brave Search、Exa、Perplexity
-- **智能路由**：根据调用来源决定输出格式
-- **结果去重**：按 URL 自动去重
+- **结果路由**：根据调用来源决定输出格式
+- **智能去重**：按 URL 自动去重
 - **缓存机制**：避免重复搜索
 
 ## 安装
 
 ```bash
+git clone https://github.com/YintaTriss/AgentSearch.git
+cd AgentSearch
 pip install -e .
 ```
 
 ## 使用
 
 ```python
-from search import SearchSkill, SearchConfig
+from agent_search import SearchSkill, SearchConfig
 
 # 创建实例
 config = SearchConfig(
@@ -38,11 +40,17 @@ result = search.execute("search", {
 ## 架构
 
 ```
-search-skill/
-├── skill.py          # 核心技能实现
-├── SKILL.md          # OpenClaw 技能入口
-└── __init__.py       # 导出
+AgentSearch/
+├── agent_search/      # 主模块
+│   ├── __init__.py
+│   └── skill.py        # 核心技能实现
+├── SKILL.md           # OpenClaw 技能入口
+└── README.md          # 本文件
 ```
+
+## 作为 AgentSymphony 的一部分
+
+AgentSearch 是 [AgentSymphony](https://github.com/YintaTriss/AgentSymphony) 技能交响乐的子技能。
 
 ## License
 
